@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyakjr7h1duq6"]
+
+[ext_resource type="Script" path="res://server.gd" id="1_gmttr"]
+[ext_resource type="Script" path="res://dataview.gd" id="2_56d24"]
+
+[node name="SERVERWINDOW" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("1_gmttr")
+
+[node name="MarginContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer" node_paths=PackedStringArray("filter")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_fit_content_height = true
+script = ExtResource("2_56d24")
+filter = NodePath("../../MarginContainer2/HBoxContainer/LineEdit")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0

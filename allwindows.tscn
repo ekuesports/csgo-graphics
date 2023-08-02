@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://xvlobsqc6mn4"]
+
+[ext_resource type="PackedScene" uid="uid://cqtkjankx1e4r" path="res://screen.tscn" id="1_5aem2"]
+[ext_resource type="PackedScene" uid="uid://cyakjr7h1duq6" path="res://server.tscn" id="2_mebol"]
+
+[node name="ALLWINDOWS" type="Node"]
+
+[node name="SCREEN" parent="." instance=ExtResource("1_5aem2")]
+
+[node name="SERVERWINDOW" type="Window" parent="."]
+initial_position = 3
+mode = 2
+current_screen = 1
+visible = false
+
+[node name="SERVERWINDOW" parent="SERVERWINDOW" instance=ExtResource("2_mebol")]

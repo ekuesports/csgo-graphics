@@ -1,0 +1,300 @@
+[gd_scene load_steps=16 format=3 uid="uid://v83otmpj2ibc"]
+
+[ext_resource type="Script" path="res://PlayerSlice.gd" id="1_1kati"]
+[ext_resource type="Texture2D" uid="uid://75ibg00txe04" path="res://graphics/powerE-raw-nosheen.png" id="2_o3nby"]
+[ext_resource type="FontFile" uid="uid://bhe6ip1j2vhs0" path="res://graphics/fonts/C64_PRO_MONO-STYLE.TTF" id="3_i2xd6"]
+[ext_resource type="Texture2D" uid="uid://cfcpthkftrkjx" path="res://graphics/icons/resources/suicide.png" id="3_j6m22"]
+[ext_resource type="Texture2D" uid="uid://clkffjfi4up7x" path="res://graphics/icons/weapons/grenades/weapon_decoy.svg" id="5_gc7j8"]
+[ext_resource type="Texture2D" uid="uid://bsi12ow6c7wli" path="res://graphics/icons/resources/armor_helmet.png" id="6_8yj76"]
+[ext_resource type="Texture2D" uid="uid://brcxh3dkeuekn" path="res://graphics/icons/weapons/guns/weapon_ak47.svg" id="7_k4anx"]
+[ext_resource type="Texture2D" uid="uid://u14vtb6mjgm3" path="res://graphics/icons/weapons/guns/weapon_cz75a.svg" id="8_ymth4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmx10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5up2"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Gradient" id="Gradient_knxgf"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ejm4w"]
+gradient = SubResource("Gradient_knxgf")
+
+[sub_resource type="Gradient" id="Gradient_ycvux"]
+colors = PackedColorArray(0.85, 0.85, 0.85, 1, 0.85, 0.85, 0.85, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_85pu6"]
+gradient = SubResource("Gradient_ycvux")
+
+[sub_resource type="GDScript" id="GDScript_pxm5r"]
+script/source = "extends TextureProgressBar
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="PlayerSlice" type="Panel"]
+clip_contents = true
+offset_right = 299.0
+offset_bottom = 88.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jmx10")
+script = ExtResource("1_1kati")
+
+[node name="CONTAINER" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n5up2")
+
+[node name="__" type="VBoxContainer" parent="CONTAINER"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopMargins" type="MarginContainer" parent="CONTAINER/__"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="__" type="HBoxContainer" parent="CONTAINER/__/TopMargins"]
+clip_contents = true
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 10
+
+[node name="Headshot" type="TextureRect" parent="CONTAINER/__/TopMargins/__"]
+layout_mode = 2
+texture = ExtResource("2_o3nby")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="__" type="VBoxContainer" parent="CONTAINER/__/TopMargins/__"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="__" type="HBoxContainer" parent="CONTAINER/__/TopMargins/__/__"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NAME" type="Label" parent="CONTAINER/__/TopMargins/__/__/__"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_fonts/font = ExtResource("3_i2xd6")
+theme_override_font_sizes/font_size = 12
+text = "NAME"
+vertical_alignment = 1
+clip_text = true
+
+[node name="ILOVEGODOTENGINE" type="Control" parent="CONTAINER/__/TopMargins/__/__/__"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="STATS" type="PanelContainer" parent="CONTAINER/__/TopMargins/__/__/__/ILOVEGODOTENGINE"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -73.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Stat1" type="HBoxContainer" parent="CONTAINER/__/TopMargins/__/__/__/ILOVEGODOTENGINE/STATS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="StatLabel" type="Label" parent="CONTAINER/__/TopMargins/__/__/__/ILOVEGODOTENGINE/STATS/Stat1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_i2xd6")
+theme_override_font_sizes/font_size = 12
+text = "7"
+horizontal_alignment = 2
+vertical_alignment = 2
+clip_text = true
+
+[node name="StatIcon" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/__/ILOVEGODOTENGINE/STATS/Stat1"]
+layout_mode = 2
+texture = ExtResource("3_j6m22")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="___" type="HBoxContainer" parent="CONTAINER/__/TopMargins/__/__"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MONEY" type="Label" parent="CONTAINER/__/TopMargins/__/__/___"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_i2xd6")
+theme_override_font_sizes/font_size = 12
+text = "MONEY"
+vertical_alignment = 1
+
+[node name="ILOVEGODOTENGINE" type="Control" parent="CONTAINER/__/TopMargins/__/__/___"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GrenadeMargins" type="MarginContainer" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="GRENADES" type="HBoxContainer" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="GrenadeIcon1" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins/GRENADES"]
+layout_mode = 2
+texture = ExtResource("5_gc7j8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GrenadeIcon2" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins/GRENADES"]
+layout_mode = 2
+texture = ExtResource("5_gc7j8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GrenadeIcon3" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins/GRENADES"]
+layout_mode = 2
+texture = ExtResource("5_gc7j8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GrenadeIcon4" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins/GRENADES"]
+layout_mode = 2
+texture = ExtResource("5_gc7j8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GrenadeIcon5" type="TextureRect" parent="CONTAINER/__/TopMargins/__/__/___/ILOVEGODOTENGINE/GrenadeMargins/GRENADES"]
+layout_mode = 2
+texture = ExtResource("5_gc7j8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BOTTOMBAR" type="PanelContainer" parent="CONTAINER/__"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HEALTHBAR" type="TextureProgressBar" parent="CONTAINER/__/BOTTOMBAR"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_ejm4w")
+texture_progress = SubResource("GradientTexture1D_85pu6")
+script = SubResource("GDScript_pxm5r")
+
+[node name="HorizMargins" type="MarginContainer" parent="CONTAINER/__/BOTTOMBAR"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="__" type="HBoxContainer" parent="CONTAINER/__/BOTTOMBAR/HorizMargins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="__" type="HBoxContainer" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="HEALTH" type="Label" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/__"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i2xd6")
+theme_override_font_sizes/font_size = 10
+text = "100"
+vertical_alignment = 2
+
+[node name="ARMOR" type="TextureRect" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/__"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_8yj76")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ILOVEGODOTENGINE" type="Control" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WeaponsVertMargins" type="MarginContainer" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/ILOVEGODOTENGINE"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="WEAPONS" type="HBoxContainer" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/ILOVEGODOTENGINE/WeaponsVertMargins"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="WeaponIcon1" type="TextureRect" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/ILOVEGODOTENGINE/WeaponsVertMargins/WEAPONS"]
+layout_mode = 2
+texture = ExtResource("7_k4anx")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="WeaponIcon2" type="TextureRect" parent="CONTAINER/__/BOTTOMBAR/HorizMargins/__/ILOVEGODOTENGINE/WeaponsVertMargins/WEAPONS"]
+layout_mode = 2
+texture = ExtResource("8_ymth4")
+expand_mode = 3
+stretch_mode = 4
