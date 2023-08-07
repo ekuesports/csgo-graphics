@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxp078efps0l8"]
+
+[ext_resource type="StyleBox" uid="uid://c5qksatwvgfwy" path="res://greybox.tres" id="1_albds"]
+[ext_resource type="FontFile" uid="uid://bhe6ip1j2vhs0" path="res://graphics/fonts/C64_PRO_MONO-STYLE.TTF" id="2_lem1t"]
+[ext_resource type="Script" path="res://ScoreSlice.gd" id="2_n76u5"]
+
+[node name="ScoreSlice" type="Panel"]
+clip_children = 2
+custom_minimum_size = Vector2(300, 100)
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_albds")
+script = ExtResource("2_n76u5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLeft" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SCORELEFT" type="Label" parent="HBoxContainer/ScoreLeft"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_lem1t")
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="TIMER" type="Label" parent="HBoxContainer/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("2_lem1t")
+theme_override_font_sizes/font_size = 24
+text = "1:25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreRight" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SCORERIGHT" type="Label" parent="HBoxContainer/ScoreRight"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_lem1t")
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

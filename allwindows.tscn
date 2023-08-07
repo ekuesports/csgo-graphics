@@ -11,6 +11,5 @@
 initial_position = 3
 mode = 2
 current_screen = 1
-visible = false
 
 [node name="SERVERWINDOW" parent="SERVERWINDOW" instance=ExtResource("2_mebol")]

@@ -23,7 +23,7 @@ func _ready():
 	if right_side:
 		reflect_all_horizontal()
 
-func _process(delta):
+func _process(_delta):
 	var success = get_target()
 	if not success: return
 
@@ -122,6 +122,10 @@ func handle_player_weapons():
 		var grenade = grenades[i]
 		if grenade == "": continue
 		icon.texture = IconManager.get_icon(grenade)
+		
+	if c4:
+		#C4 Icon
+		pass
 
 func on_target_death():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
